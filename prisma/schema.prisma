@@ -17,8 +17,7 @@ model User {
 model Item {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   title    String
-  content  String
+  description  String
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
-  image String
 }
