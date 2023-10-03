@@ -1,7 +1,9 @@
 import Image from "next/image";
 import image from "@/assets/banner.jpg";
+import UpdateItem from "../page/items/updateItem";
+import DeleteItem from "../page/items/deleteItem";
 
-const ItemCard = () => {
+const ItemCard = ({ item }) => {
   return (
     <div className="border rounded">
       <Image
@@ -11,9 +13,13 @@ const ItemCard = () => {
         src={image}
         alt="item image"
       />
-      <div className="p-5">
-        <h4 className="font-semibold uppercase">Item name</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum non illo doloribus eius quos vero quis autem cum ea cumque.</p>
+      <div className="p-3">
+        <h4 className="font-semibold uppercase">{item?.title}</h4>
+        <p>{item?.description}</p>
+        <div className="grid grid-cols-2 gap-2">
+          <UpdateItem item={item} />
+          <DeleteItem id={item.id} />
+        </div>
       </div>
     </div>
   );
